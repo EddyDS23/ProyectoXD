@@ -54,7 +54,7 @@ function getTask(){
                     const btnTaskSuccess = document.createElement('button');
                     btnTaskSuccess.textContent = 'Terminar';
                     btnTaskSuccess.addEventListener("click",function(){
-                        console.log("btnSuccess working");    
+                        updateStatusTask(task.tas_id);    
                     })
                     div.appendChild(btnTaskSuccess);
                 };
@@ -68,20 +68,23 @@ function getTask(){
     .catch(error => {
         console.log("Error: ",error);
     });
+    
 }
 
 
 function updateStatusTask(taskId){
 
-    data = {
-        taskId:taskId
-    }
-
-    fetch('../php/tareas.php',{
-        method:'PUT',
-
+    fetch(`../php/tareas.php?taskId=${taskId}`,{
+        method:'PUT'
     })
-
+    .then(response => response.json())
+    .then(result => {
+        console.log("Actualizacion: ",result)
+        getTask();
+    })
+    .catch(error =>{
+        console.log("Error: ",error);
+    });
 
 }
 

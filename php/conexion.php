@@ -154,7 +154,7 @@ class conexion {
         $stmt->bind_param('i',$taskId);
 
         if($stmt -> execute()){
-            return ['status' => 'success', 'message' => 'Tarea actualizada'];
+            return true;
         }else{
             return ['status' => 'failed', 'message' => 'Tarea no actualizada '.$stmt->error];
         }
