@@ -1,0 +1,84 @@
+/* Fuente moderna y colores suaves */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Caja blanca con sombra y bordes redondeados */
+.container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    margin-bottom: 24px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Inputs con efecto suave */
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+form input:focus {
+    outline: none;
+    background-color: #e0e0e0;
+}
+
+/* Botón con efecto hover */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Link para crear cuenta */
+#createAcount {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+#createAcount:hover {
+    color: #0056b3;
+}
+
+/* Mensaje de error o éxito */
+#mensaje {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: red;
+}
