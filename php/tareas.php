@@ -1,11 +1,13 @@
 <?php
 
 session_start();
-
+parse_str($_SERVER['QUERY_STRING'],$params);
 header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents('php://input'),true);
 
+
+$taskId = $params['taskId'] ?? null;
 $method = $_SERVER['REQUEST_METHOD'];
 $name = $data['name'] ?? null;
 $description = $data['description'] ?? null;
@@ -37,6 +39,19 @@ switch($method){
         }
 
         break;
+    case 'PUT':
+
+        $result = $conexion->updateStatusTask($taskId);
+
+        if($result === true){
+            echo json_encode(['status' => 'success', 'message' => 'Tarea actualizada']); 
+        }else{
+            echo json_encode($result);
+        }
+
+        break;
+        
+
 }
     $conexion->closeConection();
 
