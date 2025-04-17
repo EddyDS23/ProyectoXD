@@ -1,17 +1,28 @@
 <?php
 
+require '../vendor/autoload.php';
+use Dotenv\Dotenv;
+
+$dotenv =  Dotenv::createImmutable(__DIR__.'/../');
+$dotenv->load();
+
 // Mostrar errores (solo en desarrollo)
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 class conexion {
-    private $server = "localhost";
-    private $user = "wacho";
-    private $password = "1234";
-    private $database = "test";
+    private $server;
+    private $user;
+    private $password;
+    private $database;
     private $conn;
 
     public function __construct() {
+        $this->server = $_ENV['BD_HOST'];
+        $this->user = $_ENV['BD_USER'];
+        $this->password = $_ENV['BD_PASSWORD'];
+        $this->database = $_ENV['BD_DATABASE'];
+
         $this->connect();
     }
 

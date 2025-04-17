@@ -18,10 +18,13 @@ btnLogin.addEventListener("click",function(){
     .then(response => response.json())
     .then(result => {
         if(result.status === 'success'){
+    
+            window.location.href = '/GUIs/principal.php';
+            console.log("Datos",result);
+            localStorage.setItem('token',result.token);
             
-            window.location.href = '/GUIs/principal.php'
         }else{
-            alert(result.message);
+            console.log(result.message);
         }
     })
     .catch(error => {

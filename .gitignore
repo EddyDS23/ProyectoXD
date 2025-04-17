@@ -1,0 +1,6 @@
+#ignorar el archivo .env donde se encuentran las variables locales
+
+.env
+
+#ignorar el /vendor donde estan los modulos o bibliotecas que se usan
+/vendor
